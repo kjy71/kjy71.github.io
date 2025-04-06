@@ -1,3 +1,111 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+  
+
 .hidden{
     display: none;
 }
+/* 전체 가운데 정렬용 부모 */
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh; /* 시계를 살짝 위로 */
+  }
+  
+/* 시계 */
+#clock {
+    font-size: 80px;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+  }
+
+  #login-form {
+    position: absolute;  /* 또는 fixed도 가능 */
+    top: 20px;
+    right: 20px;
+    
+    gap: 5px;
+    align-items: center;
+  }
+  
+  #login-form input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  #login-form button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00aaff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #weather {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+/* todo 입력 + 리스트 */
+#todo-container {
+    width: 300px;
+    text-align: center;
+  }
+  
+  #todo-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  #todo-list {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 텍스트 + 버튼 세트 가운데 */
+    gap: 6px;
+    margin: 5px 0;
+  }
+  .delete-btn {
+    padding: 0;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .delete-btn:hover {
+    color: #ff6b6b;
+    transform: scale(1.2);
+  }
+  
+  .delete-btn .material-icons {
+    font-size: 18px;
+    vertical-align: middle; /* 🔥 핵심: 세로 가운데 정렬 */
+  }

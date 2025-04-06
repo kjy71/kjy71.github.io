@@ -13,7 +13,8 @@ function sexyFilter(event) {
 }
 
 function deleteToDo(event) {
-  const li = event.target.parentElement;
+  //const li = event.target.parentElement;
+  const li = event.target.closest("li");
   li.remove();
   console.log(toDos);
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
@@ -27,7 +28,10 @@ function paintToDo(newTodo) {
   const span = document.createElement("span");
   span.innerText = newTodo.text;
   const button = document.createElement("button");
-  button.innerText = "❌"; //window + .
+  button.classList.add("delete-btn");
+  button.innerHTML = `<span class="material-icons">close</span>`;
+
+  //button.innerText = "❌"; //window + .
   button.addEventListener("click", deleteToDo);
   li.appendChild(span);
   li.appendChild(button);
@@ -36,6 +40,12 @@ function paintToDo(newTodo) {
 
 function handleToDoSubmit(event) {
   event.preventDefault();
+
+  const username = localStorage.getItem("username");
+  if (!username) {
+    alert("로그인 후 입력하세요!");
+    return;
+  }
   const newTodo = toDoInput.value;
   toDoInput.value = "";
   const newTodoObj = {
